@@ -19,7 +19,7 @@ def connection(ip):
     
 def send(message):
     try:
-        sock.send(message)
+        sock.send(message.encode())
     except Exception as e :
         os.system("echo '" +e+"' > logs/log"+now.day+ "-" +now.hour+":"+now.minute+","+now.second+".txt")
         print("failed to send message\n\nlogs have been saved in log directory")
