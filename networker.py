@@ -1,4 +1,7 @@
+from ast import While
+from email import message
 import os
+from sqlite3 import connect
 import sys
 import time
 import json
@@ -13,6 +16,7 @@ def connection(ip):
         try:
             sock.connect((str(ip), 4443))
             break
+
         except:
             time.sleep(3)
             print("retrying connection")
@@ -26,7 +30,12 @@ def send(message):
         
 def main():
     print("hello to my network app")
-    
+    ip = input("what is the server ip?")
+    connection(ip)
+    a = 1
+    while (a == 1):
+        message = input("")
+        send(message)
 
 if __name__ == '__main__':
     main()
