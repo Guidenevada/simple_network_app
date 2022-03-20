@@ -48,9 +48,12 @@ while True:
             message = socks.recv(2048)
             print (message.decode())
         else:
+            if socks.recv(2048):
+                message = socks.recv(2048)
+                print (message.decode())
             message = sys.stdin.readline()
             sock.send(message.encode())
             sys.stdout.write("<You>")
             sys.stdout.write(message)
             sys.stdout.flush()
-server.close()
+sock.close()
